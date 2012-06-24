@@ -1,0 +1,13 @@
+This repository contains only the Vim editor binary as compiled for Kindle 3. It is compiled with Python 2.6 support and all the normal features. Vim shared resources are not included. Compatible ARM binaries for Vim, Python can be downloaded from http://ipkg.nslu2-linux.org/feeds/optware/cs08q1armel/cross/unstable/
+
+
+The Vim binary is cross-compiled using scratchbox with cs2007q3-glibc2.5-arm7 cross-compiler toolchain.
+
+export SBOX_EXTRA_COMPILER_ARGS="-march=armv6j -mcpu=arm1136jf-s -mtune=arm1136jf-s -mfpu=vfp"
+
+cd vim73
+./configure --prefix=/opt --enable-pythoninterp --disable-gui --without-x --enable-multibyte
+make
+make install DESTDIR=$(pwd)/build
+
+
